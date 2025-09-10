@@ -4,12 +4,12 @@ namespace TMDB.Abstract
 {
     public interface ITMDBRepo
     {
-        List<Users> getAllComments();
-        Users getCommentById(int id);
+        List<Tasks> getAllTasks();
+        Tasks getTasksById(int id);
 
-        Users CreateComments(Users user);
-        Users UpdateComments(Users user);
-        void DeleteComments(int id);
+        Tasks CreateTasks(Tasks task);
+        Tasks UpdateTasks(Tasks task);
+        void DeleteTasks(int id);
 
     }
 }

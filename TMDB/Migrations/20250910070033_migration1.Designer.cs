@@ -11,8 +11,8 @@ using TMDB.Data;
 namespace TMDB.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250909083505_initialCreate4")]
-    partial class initialCreate4
+    [Migration("20250910070033_migration1")]
+    partial class migration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace TMDB.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("TMDB.Entities.Users", b =>
+            modelBuilder.Entity("TMDB.Entities.Tasks", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace TMDB.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Task");
                 });
 #pragma warning restore 612, 618
         }

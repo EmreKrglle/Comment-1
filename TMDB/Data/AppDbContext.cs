@@ -12,7 +12,7 @@ namespace TMDB.Data
 );
 
         }
-        public DbSet <Entities.Users> Users { get; set; }
+        public DbSet <Entities.Tasks> Task { get; set; }
     }
     
 

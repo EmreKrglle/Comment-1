@@ -7,38 +7,44 @@ namespace TMDB.Concrete
 {
     public class TMDBRepositry : ITMDBRepo
     {
-        Users ITMDBRepo.CreateComments(Users user)
+        Tasks ITMDBRepo.CreateTasks(Tasks task)
         {
-            throw new NotImplementedException();
+            using (var tasksDb = new AppDbContext())
+            {
+                tasksDb.Task.Add(task);
+                tasksDb.SaveChanges();
+                return task;
+
+            }
         }
 
-        void ITMDBRepo.DeleteComments(int id)
+        void ITMDBRepo.DeleteTasks(int id)
         {
-            using (var commentsDb = new AppDbContext()) 
-            { var deleteComments= commentsDb.Users.Find(id);
-                if (deleteComments != null)
+            using (var tasksDb = new AppDbContext()) 
+            { var deleteTasks= tasksDb.Task.Find(id);
+                if (deleteTasks != null)
                 {
-                    commentsDb.Users.Remove(deleteComments);
-                    commentsDb.SaveChanges();
+                    tasksDb.Task.Remove(deleteTasks);
+                    tasksDb.SaveChanges();
                 }
 
             }
 
         }
 
-        List<Users> ITMDBRepo.getAllComments()
+        List<Tasks> ITMDBRepo.getAllTasks()
         {
-            using (var commentsDb = new AppDbContext())
-                return commentsDb.Users.ToList();
+            using (var tasksDb = new AppDbContext())
+                return tasksDb.Task.ToList();
         }
 
-        Users ITMDBRepo.getCommentById(int id)
+        Tasks ITMDBRepo.getTasksById(int id)
         {
             try
             {
                 using (
-                var commentsDb = new AppDbContext()) {
-                   return commentsDb.Users.Find(id);
+                var tasksDb = new AppDbContext()) {
+                   return tasksDb.Task.Find(id);
 
 
                 } 
@@ -55,12 +61,12 @@ namespace TMDB.Concrete
 
         }
 
-        Users ITMDBRepo.UpdateComments(Users user)
+        Tasks ITMDBRepo.UpdateTasks(Tasks task)
         {
-            using (var commentsDb = new AppDbContext())
+            using (var tasksDb = new AppDbContext())
             {
-                commentsDb.Users.Update(user);
-                return user;
+                tasksDb.Task.Update(task);
+                return task;
             }
         }
     }
