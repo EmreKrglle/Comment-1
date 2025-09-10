@@ -2,10 +2,10 @@
 {
     public interface ITasksServices
     {
-        List<Entities.Tasks> getAllTasks();
-        Entities.Tasks getTasksById(int id);
-        Entities.Tasks CreateTasks(Entities.Tasks task);
-        Entities.Tasks UpdateTasks(Entities.Tasks task);
+        List<Entities.AppTasks> getAllTasks();
+        Entities.AppTasks getTasksById(int id);
+        Entities.AppTasks CreateTasks(Entities.AppTasks task);
+        Entities.AppTasks UpdateTasks(Entities.AppTasks task);
         void DeleteTasks(int id);
     }
 }

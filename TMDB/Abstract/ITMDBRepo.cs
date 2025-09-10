@@ -4,11 +4,11 @@ namespace TMDB.Abstract
 {
     public interface ITMDBRepo
     {
-        List<Tasks> getAllTasks();
-        Tasks getTasksById(int id);
+        List<AppTasks> getAllTasks();
+        AppTasks getTasksById(int id);
 
-        Tasks CreateTasks(Tasks task);
-        Tasks UpdateTasks(Tasks task);
+        AppTasks CreateTasks(AppTasks task);
+        AppTasks UpdateTasks(AppTasks task);
         void DeleteTasks(int id);
 
     }

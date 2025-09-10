@@ -18,23 +18,23 @@ namespace TMDB.Controllers
         }
 
         [HttpGet]
-        public List<Entities.Tasks> Get()
+        public List<Entities.AppTasks> Get()
         {
             return _tasksServices.getAllTasks();
 
         }
         [HttpGet("{id}")]
-        public Entities.Tasks Get(int id)
+        public Entities.AppTasks Get(int id)
         {
             return _tasksServices.getTasksById(id);
         }
         [HttpPost]
-        public Entities.Tasks Post([FromBody] Entities.Tasks task)
+        public Entities.AppTasks Post([FromBody] Entities.AppTasks task)
         {
             return _tasksServices.CreateTasks(task);
         }
         [HttpPut]
-        public Entities.Tasks Put([FromBody] Entities.Tasks task)
+        public Entities.AppTasks Put([FromBody] Entities.AppTasks task)
         {
             return _tasksServices.UpdateTasks(task);
         }

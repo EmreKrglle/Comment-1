@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TMDB.Entities;
 
 namespace TMDB.Data
 {
@@ -9,10 +10,19 @@ namespace TMDB.Data
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(
     "Server=DESKTOP-PFDIES0\\SQLEXPRESS;Database=TMDB;Trusted_Connection=True;TrustServerCertificate=True;"
-);
+            );
 
         }
-        public DbSet <Entities.Tasks> Task { get; set; }
+        public DbSet<AppTasks> Tasks { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<AppTasks>()
+                .HasMany(t => t.Users)
+                .WithMany(u => u.Tasks)
+                .UsingEntity(j => j.ToTable("UserTasks"));
+        }
+        public DbSet <Entities.AppTasks> Task { get; set; }
+        public DbSet<Entities.User> Users { get; set; }    
     }
     
 

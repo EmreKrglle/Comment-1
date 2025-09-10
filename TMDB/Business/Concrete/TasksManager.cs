@@ -15,7 +15,7 @@ namespace TMDB.Business.Concrete
             _tasksRepo = tasksRepo;
         }
 
-        Tasks ITasksServices.CreateTasks(Tasks task)
+        AppTasks ITasksServices.CreateTasks(AppTasks task)
         {
             return _tasksRepo.CreateTasks(task);
         }
@@ -29,12 +29,12 @@ namespace TMDB.Business.Concrete
             }
         }
 
-        List<Tasks> ITasksServices.getAllTasks()
+        List<AppTasks> ITasksServices.getAllTasks()
         {
             return _tasksRepo.getAllTasks();
         }
 
-        Tasks ITasksServices.getTasksById(int id)
+        AppTasks ITasksServices.getTasksById(int id)
         {   
 
             if (id <= 0)
@@ -44,7 +44,7 @@ namespace TMDB.Business.Concrete
             return _tasksRepo.getTasksById(id);
         }
 
-        Tasks ITasksServices.UpdateTasks(Tasks task)
+        AppTasks ITasksServices.UpdateTasks(AppTasks task)
         {
             return _tasksRepo.UpdateTasks(task);
 

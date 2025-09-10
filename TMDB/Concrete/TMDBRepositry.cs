@@ -7,7 +7,7 @@ namespace TMDB.Concrete
 {
     public class TMDBRepositry : ITMDBRepo
     {
-        Tasks ITMDBRepo.CreateTasks(Tasks task)
+        AppTasks ITMDBRepo.CreateTasks(AppTasks task)
         {
             using (var tasksDb = new AppDbContext())
             {
@@ -32,13 +32,13 @@ namespace TMDB.Concrete
 
         }
 
-        List<Tasks> ITMDBRepo.getAllTasks()
+        List<AppTasks> ITMDBRepo.getAllTasks()
         {
             using (var tasksDb = new AppDbContext())
                 return tasksDb.Task.ToList();
         }
 
-        Tasks ITMDBRepo.getTasksById(int id)
+        AppTasks ITMDBRepo.getTasksById(int id)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace TMDB.Concrete
 
         }
 
-        Tasks ITMDBRepo.UpdateTasks(Tasks task)
+        AppTasks ITMDBRepo.UpdateTasks(AppTasks task)
         {
             using (var tasksDb = new AppDbContext())
             {
